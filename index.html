@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Sales Coach</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <div class="container mx-auto px-4 py-8">
+        <header class="mb-8">
+            <h1 class="text-3xl font-bold text-center text-indigo-700">AI Sales Coach</h1>
+            <p class="text-center text-gray-600">Analyze your sales conversations and get AI-powered feedback</p>
+        </header>
+
+        <div class="flex flex-col md:flex-row gap-6">
+            <!-- Left sidebar with options -->
+            <div class="w-full md:w-1/4 bg-white p-4 rounded-lg shadow-md">
+                <h2 class="text-xl font-semibold mb-4 text-indigo-600">Analysis Options</h2>
+                
+                <div class="mb-6">
+                    <label class="block text-gray-700 mb-2">Analysis Type</label>
+                    <select id="analysis-type" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        <option value="general">General Analysis</option>
+                        <option value="objections">Objection Handling</option>
+                        <option value="closing">Closing Techniques</option>
+                        <option value="rapport">Rapport Building</option>
+                        <option value="pitch">Sales Pitch Evaluation</option>
+                    </select>
+                </div>
+
+                <div class="mb-6">
+                    <label class="block text-gray-700 mb-2">Sales Methodology</label>
+                    <select id="methodology" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        <option value="none">No Specific Methodology</option>
+                        <option value="SPIN">SPIN: Questioning Methodology</option>
+                        <option value="BANT">BANT: Qualification Framework</option>
+                        <option value="CHALLENGER">Challenger: Teaching Approach</option>
+                        <option value="SOLUTION">Solution Selling: Problem Solving</option>
+                    </select>
+                </div>
+
+                <div class="mb-6">
+                    <label class="block text-gray-700 mb-2">Example Conversations</label>
+                    <select id="example-conversation" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        <option value="none">No Example</option>
+                        <option value="cold_call">Cold Call Example</option>
+                        <option value="discovery">Discovery Call Example</option>
+                        <option value="objection">Objection Handling Example</option>
+                    </select>
+                </div>
+
+                <div>
+                    <button id="load-example" class="w-full bg-indigo-600 text-white py-2 px-4 rounded hover:bg-indigo-700 transition">
+                        Load Example
+                    </button>
+                </div>
+            </div>
+
+            <!-- Main content area -->
+            <div class="w-full md:w-3/4">
+                <div class="flex flex-col lg:flex-row gap-6">
+                    <!-- Input section -->
+                    <div class="w-full lg:w-1/2">
+                        <div class="bg-white p-4 rounded-lg shadow-md h-full">
+                            <h2 class="text-xl font-semibold mb-4 text-indigo-600">Enter Sales Conversation</h2>
+                            <textarea id="conversation-input" class="w-full h-80 p-2 border rounded resize-none focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Paste your sales conversation here..."></textarea>
+                            <button id="analyze-btn" class="mt-4 w-full bg-indigo-600 text-white py-2 px-4 rounded hover:bg-indigo-700 transition">
+                                Analyze Conversation
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Output section -->
+                    <div class="w-full lg:w-1/2">
+                        <div class="bg-white p-4 rounded-lg shadow-md h-full">
+                            <h2 class="text-xl font-semibold mb-4 text-indigo-600">AI Feedback</h2>
+                            <div id="loading-indicator" class="hidden">
+                                <div class="flex justify-center items-center h-80">
+                                    <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-indigo-500"></div>
+                                </div>
+                            </div>
+                            <div id="feedback-output" class="h-80 p-2 border rounded overflow-y-auto">
+                                <p class="text-gray-400 italic">Analysis will appear here...</p>
+                            </div>
+                            <button id="download-btn" class="mt-4 w-full bg-gray-600 text-white py-2 px-4 rounded hover:bg-gray-700 transition">
+                                Download Feedback
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tips section -->
+                <div class="mt-6 bg-white p-4 rounded-lg shadow-md">
+                    <h3 class="text-lg font-semibold mb-2 text-indigo-600 cursor-pointer" id="tips-toggle">
+                        Sales Improvement Tips <span class="float-right">+</span>
+                    </h3>
+                    <div id="tips-content" class="hidden">
+                        <h4 class="font-medium mb-2 text-gray-700">Common Sales Improvement Areas</h4>
+                        <ol class="list-decimal pl-5 space-y-2">
+                            <li><strong>Active Listening:</strong> Focus on what the customer is saying rather than thinking about your next response.</li>
+                            <li><strong>Value Proposition:</strong> Clearly articulate how your product/service solves the customer's specific problems.</li>
+                            <li><strong>Question Techniques:</strong> Use open-ended questions to uncover needs and pain points.</li>
+                            <li><strong>Objection Handling:</strong> Acknowledge objections, respond with empathy, and provide evidence to address concerns.</li>
+                            <li><strong>Follow-Up:</strong> Create a systematic approach to following up without being pushy.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="mt-8 text-center text-gray-500 text-sm">
+            <p>AI Sales Coach | Powered by Google Gemini</p>
+        </footer>
+    </div>
+
+    <script src="examples.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 
