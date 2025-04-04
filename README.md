@@ -33,7 +33,7 @@ An intelligent tool that uses Google's Gemini AI to analyze sales conversations 
 
 1. Clone this repository:
    ```
-   git clone https://github.com/yourusername/ai-sales-coach.git
+   git clone https://github.com/Nitindagar777/ai-sales-coach.git
    cd ai-sales-coach
    ```
 
